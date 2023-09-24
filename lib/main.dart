@@ -28,7 +28,7 @@ class MyHomePage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var value = ref.watch(counterProvider);
-    final event = ref.read(counterProvider.notifier).getImgUrlIsolate();
+    final event = ref.read(counterProvider.notifier);
     return Scaffold(
       body: Center(
         child: Column(
@@ -48,7 +48,7 @@ class MyHomePage extends HookConsumerWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => event,
+        onPressed: () => event.getImgUrlIsolate(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
